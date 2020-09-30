@@ -15,10 +15,20 @@ export default class App extends Component {
 		]
 	}
 
+	//添加一个todo
 	addTodo = (name)=>{
 		const todoObj = {id:nanoid(),name,completed:false}
 		const {todos} = this.state
 		this.setState({todos:[todoObj,...todos]})
+	}
+
+	//删除一个todo
+	deleteTodo = (id)=>{
+		const {todos} = this.state
+		const formatedTodos = todos.filter((todo)=>{
+			return todo.id !== id
+		})
+		this.setState({todos:formatedTodos})
 	}
 
 	render() {
@@ -27,7 +37,7 @@ export default class App extends Component {
 			<div className="todo-container">
 				<div className="todo-wrap">
 					<Header addTodo={this.addTodo}/>
-					<List todos={todos}/>
+					<List todos={todos} deleteTodo={this.deleteTodo}/>
 					<Footer/>
 				</div>
 			</div>
