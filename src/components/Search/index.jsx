@@ -4,12 +4,12 @@ import React, { Component } from 'react'
 export default class Search extends Component {
 
 	search = async ()=>{
-		//1.获取用户的输入
+		//获取用户的输入
 		const {value} = this.userInput
 		console.log(value);
 		//发送请求之前更新状态
 		this.props.updateAppState({isFirst:false,isLoading:true})
-		//#region 2.axios发送请求
+		//#region axios发送请求
 		/* try {
 			const response = await axios.get(`/v1/search/users?q=${value}`)
 			this.props.updateAppState({isLoading:false,users:response.data.items})
@@ -17,6 +17,7 @@ export default class Search extends Component {
 			this.props.updateAppState({isLoading:false,error:error.message})
 		} */
 		//#endregion
+		
 		//#region 使用fetch发送请求
 		/* fetch(`/v1/search/users2?q=${value}`).then(
 			response => {
@@ -33,6 +34,7 @@ export default class Search extends Component {
 		) */
 		//#endregion
 		
+		//fetch配合async await发送请求
 		try {
 			const response =  await fetch(`/v1/search/users2?q=${value}`)
 			const data = await response.json()
