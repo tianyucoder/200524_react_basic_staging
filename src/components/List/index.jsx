@@ -7,7 +7,8 @@ export default class List extends Component {
 
 	static propTypes = {
 		todos:PropTypes.array.isRequired,
-		deleteTodo:PropTypes.func.isRequired
+		deleteTodo:PropTypes.func.isRequired,
+		handleTodoChange:PropTypes.func.isRequired
 	}
 
 	static defaultProps = {
@@ -15,12 +16,12 @@ export default class List extends Component {
 	}
 
 	render() {
-		const {todos,deleteTodo} = this.props
+		const {todos,deleteTodo,handleTodoChange} = this.props
 		return (
 			<ul className="todo-main">
 				{
 					todos.map((todo)=>{
-						return <Item key={todo.id} {...todo} deleteTodo={deleteTodo}/>
+						return <Item key={todo.id} {...todo} deleteTodo={deleteTodo} handleTodoChange={handleTodoChange}/>
 					})
 				}
 			</ul>

@@ -10,8 +10,8 @@ export default class App extends Component {
 	state = {
 		todos:[
 			{id:'0001',name:'吃饭',completed:true},
-			{id:'0002',name:'睡觉',completed:true},
-			{id:'0003',name:'打龙哥',completed:false}
+			{id:'0002',name:'睡觉',completed:false},
+			{id:'0003',name:'打龙哥',completed:true}
 		]
 	}
 
@@ -31,14 +31,39 @@ export default class App extends Component {
 		this.setState({todos:formatedTodos})
 	}
 
+	//勾选 取消勾选 一个todo
+	handleTodoChange = (id,completed)=>{
+		const {todos} = this.state
+		const formatedTodos = todos.map((todo)=>{
+			if(todo.id === id) return {...todo,completed}
+			return todo
+		})
+		this.setState({todos:formatedTodos})
+	}
+
+	handleAllChange = (completed)=>{
+		const todos =  this.state.todos.map((todo)=>{
+			return {...todo,completed}
+		})
+		this.setState({todos})
+	}
+	
+	clearAllCompleted = ()=>{
+		const todos = this.state.todos.filter((todo)=>{
+			return !todo.completed
+		})
+		this.setState({todos})
+	}
+
+
 	render() {
 		const {todos} = this.state
 		return (
 			<div className="todo-container">
 				<div className="todo-wrap">
 					<Header addTodo={this.addTodo}/>
-					<List todos={todos} deleteTodo={this.deleteTodo}/>
-					<Footer/>
+					<List todos={todos} deleteTodo={this.deleteTodo} handleTodoChange={this.handleTodoChange}/>
+					<Footer todos={this.state.todos} handleAllChange={this.handleAllChange} clearAllCompleted={this.clearAllCompleted}/>
 				</div>
 			</div>
 		)
