@@ -25,6 +25,7 @@ export default class App extends Component {
 							{/* react中使用路由链接(Link)进行切换组件 */}
 							{/* <NavLink className="list-group-item" to="/about" activeClassName="demo">About</NavLink>
 							<NavLink className="list-group-item" to="/home" activeClassName="demo">Home</NavLink> */}
+							
 							<MyNavLink to="/about">About</MyNavLink>
 							<MyNavLink to="/home">Home</MyNavLink>
 						</div>
