@@ -36,11 +36,12 @@ export default class Search extends Component {
 		
 		//fetch配合async await发送请求
 		try {
-			const response =  await fetch(`/v1/search/users2?q=${value}`)
+			const response =  await fetch(`/v1/search/users?q=${value}`)
 			const data = await response.json()
-			console.log(data);
+			this.props.updateAppState({isLoading:false,users:data.items})
 		} catch (error) {
 			console.log('请求异常',error);
+			this.props.updateAppState({isLoading:false,error:error.message})
 		}
 	}
 
