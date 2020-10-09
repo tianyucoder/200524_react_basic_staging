@@ -65,3 +65,12 @@
 			(2).fetch也是Promise风格的api
 			(3).第一次返回的Promise实例标识联系服务器是否成功
 			(4).response.json()返回的Promise实例标识数据是否获取成功
+
+## 4.路由的基本使用
+			(1).明确好界面中的导航区、展示区
+			(2).导航区的a标签改为Link标签
+						<Link to="/xxxxx">Demo</Link>
+			(3).展示区写Route标签进行路径的匹配
+						<Route path='/xxxx' component={Demo}/>
+			(4).备注为了“一劳永逸”的解决问题，我们在<App>的最外侧包裹了一个<BrowserRouter>或<HashRouter>
+
