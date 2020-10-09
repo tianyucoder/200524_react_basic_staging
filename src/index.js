@@ -4,5 +4,11 @@ import React from 'react'
 import App from './App'
 //2.引入ReactDOM
 import ReactDOM from 'react-dom'
+//引入BrowserRouter
+import {BrowserRouter} from 'react-router-dom'
 
-ReactDOM.render(<App/>,document.getElementById('root'))
+ReactDOM.render(
+	<BrowserRouter>
+		<App/>
+	</BrowserRouter>,
+	document.getElementById('root'))
