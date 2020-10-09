@@ -1,10 +1,10 @@
-## todosList
+## 1.todosList案例注意事项
 			1.yarn add prop-types，用于做标签属性的限制
 			2.yarn add nanoid，用于生成唯一标识
 			3.做参数限制时，限制函数类型，要用：xxxx:PropTypes.func
 			4.注意一个小问题：input框的defaultValue和value
 
-## react脚手架配置代理总结
+## 2.react脚手架配置代理总结
 ### 方法一
 
 > 在package.json中追加如下配置
