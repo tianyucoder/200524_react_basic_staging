@@ -1,29 +1,25 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import Search from './components/Search'
+import List from './components/List'
 
 export default class App extends Component {
 
-	componentDidMount(){
-		axios({
-			url:'/demo1/students',
-			method:'GET'
-		}).then(
-			response => {console.log('成功',response.data);},
-			error => {console.log('失败',error);}
-		)
-		axios({
-			url:'/demo2/cars',
-			method:'GET'
-		}).then(
-			response => {console.log('成功',response.data);},
-			error => {console.log('失败',error);}
-		)
+	state = {
+		users:[],//存储用户数据
+		isFirst:true, //标识是否第一次展示
+		isLoading:false, //标识是否处于加载中
+		error:'' //错误信息
+	}
+
+	updateAppState = (stateObj)=>{
+		this.setState(stateObj)
 	}
 
 	render() {
 		return (
-			<div>
-				App....
+			<div className="container">
+				<Search updateAppState={this.updateAppState}/>
+				<List {...this.state} />
 			</div>
 		)
 	}
