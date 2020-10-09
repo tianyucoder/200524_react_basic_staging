@@ -74,3 +74,32 @@
 						<Route path='/xxxx' component={Demo}/>
 			(4).备注为了“一劳永逸”的解决问题，我们在<App>的最外侧包裹了一个<BrowserRouter>或<HashRouter>
 
+## 5.封装NavLink
+			通过this.props.children可以获取标签体内容
+
+## 6.路由组件与一般组件：
+			(1).写法不同：
+						一般组件：<Demo/>
+						路由组件：<Route path='/xxxxx' component={Demo}/>
+			(2).接收到的props不同
+						一般组件：写标签的时候传递了什么就能接到什么
+						路由组件：多了三个属性
+									history:
+											go: ƒ go(n)
+											goBack: ƒ goBack()
+											goForward: ƒ goForward()
+											location: 和下面的location一样
+											push: ƒ push(path, state)
+											replace: ƒ replace(path, state)
+									location:
+											pathname: "/about"
+											search: ""
+											state: null
+									match:
+											params: {}
+											path: "/about"
+											url: "/about"
+			(3).存放位置不同
+						一般组件：components
+						路由组件：pages
+					
