@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Route,Switch} from 'react-router-dom'
+import {Route,Switch,Redirect} from 'react-router-dom'
 import MyNavLink from './components/MyNavLink'
 import About from './pages/About'
 import Home from './pages/Home'
@@ -40,9 +40,10 @@ export default class App extends Component {
 								{/* 注册路由 */}
 								<Switch>
 									<Route path='/about' component={About}/>
-									<Route path='/home' component={Home}/>
+									<Route path='/home'  component={Home}/>
 									<Route path='/test' exact={true} component={Test}/>
 									{/* <Route path='/test/a' component={Testa}/> */}
+									<Redirect to="/about"/>
 								</Switch>
 							</div>
 						</div>
@@ -52,3 +53,5 @@ export default class App extends Component {
 		)
 	}
 }
+
+
