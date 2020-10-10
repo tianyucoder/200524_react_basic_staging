@@ -72,7 +72,7 @@
 						<Link to="/xxxxx">Demo</Link>
 			(3).展示区写Route标签进行路径的匹配
 						<Route path='/xxxx' component={Demo}/>
-			(4).备注为了“一劳永逸”的解决问题，我们在<App>的最外侧包裹了一个<BrowserRouter>或<HashRouter>
+			(4).备注:为了“一劳永逸”的解决问题，我们在<App>的最外侧包裹了一个<BrowserRouter>或<HashRouter>
 
 ## 5.封装NavLink
 			通过this.props.children可以获取标签体内容
@@ -102,4 +102,8 @@
 			(3).存放位置不同
 						一般组件：components
 						路由组件：pages
-					
+
+## 7.解决路由地址为多层，样式丢失问题	
+		(1).不写./写/
+		(2).不写./ 写%PUBLIC_URL%/
+		(3).不使用BrowserRouter，使用HashRouter
